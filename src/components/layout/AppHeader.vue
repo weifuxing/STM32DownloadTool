@@ -2,6 +2,7 @@
 import { ref, onMounted } from "vue";
 import { NButton, NModal, NCard, NProgress, NSpace, NTag } from "naive-ui";
 import { useUpdater } from "@/composables/useUpdater";
+import { getVersion } from "@tauri-apps/api/app";
 
 const {
   error,
@@ -17,8 +18,9 @@ const {
 } = useUpdater();
 
 const showDialog = ref(false);
+const currentVersion = ref("");
 
-/** ç‚¹å‡»æ£€æŸ¥æ›´æ–° */
+/** µã»÷¼ì²é¸üĞÂ */
 async function handleCheckUpdate() {
   const hasUpdate = await checkForUpdate();
   if (hasUpdate) {
@@ -26,12 +28,12 @@ async function handleCheckUpdate() {
   }
 }
 
-/** ç¡®è®¤ä¸‹è½½å¹¶å®‰è£… */
+/** È·ÈÏÏÂÔØ²¢°²×° */
 async function handleConfirmUpdate() {
   await downloadAndInstall();
 }
 
-/** å…³é—­å¼¹çª— */
+/** ¹Ø±Õµ¯´° */
 function handleCloseDialog() {
   if (!downloading.value) {
     showDialog.value = false;
@@ -39,8 +41,9 @@ function handleCloseDialog() {
   }
 }
 
-// å¯åŠ¨æ—¶é™é»˜æ£€æŸ¥ä¸€æ¬¡
+// Æô¶¯Ê±¾²Ä¬¼ì²éÒ»´Î
 onMounted(async () => {
+  currentVersion.value = await getVersion();
   const hasUpdate = await checkForUpdate();
   if (hasUpdate) {
     showDialog.value = true;
@@ -51,12 +54,12 @@ onMounted(async () => {
 <template>
   <div class="app-header">
     <div class="header-title">
-      <span class="header-icon">âš¡</span>
+      <span class="header-icon">?</span>
       <span>STM32 ISP Download Tool</span>
     </div>
 
     <div class="header-actions">
-      <!-- æ£€æŸ¥æ›´æ–°æŒ‰é’® -->
+      <!-- ¼ì²é¸üĞÂ°´Å¥ -->
       <NButton
         size="tiny"
         :type="updateAvailable ? 'warning' : 'default'"
@@ -65,20 +68,20 @@ onMounted(async () => {
         class="update-btn"
         @click="handleCheckUpdate"
       >
-        {{ checking ? 'æ£€æŸ¥ä¸­...' : updateAvailable ? 'æœ‰æ–°ç‰ˆæœ¬' : 'æ£€æŸ¥æ›´æ–°' }}
+        {{ checking ? '¼ì²éÖĞ...' : updateAvailable ? 'ÓĞĞÂ°æ±¾' : '¼ì²é¸üĞÂ' }}
       </NButton>
 
-      <span class="header-version">v0.1.0</span>
+      <span class="header-version">v{{ currentVersion }}</span>
     </div>
 
-    <!-- æ›´æ–°å¼¹çª— -->
+    <!-- ¸üĞÂµ¯´° -->
     <NModal
       v-model:show="showDialog"
       :mask-closable="!downloading"
       :close-on-esc="!downloading"
     >
       <NCard
-        title="å‘ç°æ–°ç‰ˆæœ¬"
+        title="·¢ÏÖĞÂ°æ±¾"
         :bordered="false"
         size="small"
         class="update-dialog"
@@ -88,17 +91,17 @@ onMounted(async () => {
       >
         <NSpace vertical :size="12">
           <div class="update-version">
-            <span>æ–°ç‰ˆæœ¬ï¼š</span>
+            <span>ĞÂ°æ±¾£º</span>
             <NTag type="success" size="small">{{ newVersion }}</NTag>
           </div>
 
-          <!-- æ›´æ–°è¯´æ˜ -->
+          <!-- ¸üĞÂËµÃ÷ -->
           <div v-if="releaseNotes" class="update-notes">
-            <div class="notes-label">æ›´æ–°è¯´æ˜ï¼š</div>
+            <div class="notes-label">¸üĞÂËµÃ÷£º</div>
             <div class="notes-content">{{ releaseNotes }}</div>
           </div>
 
-          <!-- ä¸‹è½½è¿›åº¦ -->
+          <!-- ÏÂÔØ½ø¶È -->
           <div v-if="downloading">
             <NProgress
               type="line"
@@ -106,17 +109,17 @@ onMounted(async () => {
               :show-indicator="true"
               status="info"
             />
-            <div class="progress-text">æ­£åœ¨ä¸‹è½½æ›´æ–°... {{ progress }}%</div>
+            <div class="progress-text">ÕıÔÚÏÂÔØ¸üĞÂ... {{ progress }}%</div>
           </div>
 
-          <!-- é”™è¯¯ä¿¡æ¯ -->
+          <!-- ´íÎóĞÅÏ¢ -->
           <div v-if="error" class="update-error">{{ error }}</div>
 
-          <!-- æ“ä½œæŒ‰é’® -->
+          <!-- ²Ù×÷°´Å¥ -->
           <NSpace justify="end" v-if="!downloading">
-            <NButton size="small" @click="handleCloseDialog">ç¨åå†è¯´</NButton>
+            <NButton size="small" @click="handleCloseDialog">ÉÔºóÔÙËµ</NButton>
             <NButton size="small" type="primary" @click="handleConfirmUpdate">
-              ç«‹å³æ›´æ–°
+              Á¢¼´¸üĞÂ
             </NButton>
           </NSpace>
         </NSpace>
