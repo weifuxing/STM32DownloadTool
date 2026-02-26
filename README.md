@@ -11,7 +11,7 @@
   - 全片/扇区擦除
   - 固件写入与校验
   - 读保护解除与使能
-- **跨平台**：支持 Windows (x64)、macOS (Intel/Apple Silicon) 和 Ubuntu。
+- **跨平台**：支持 Windows (x64)。
 - **自动更新**：支持基于 GitHub Releases 的自动更新。
 
 ## 快速开始

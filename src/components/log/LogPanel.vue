@@ -140,6 +140,7 @@ function exportLogs() {
   font-family: "Cascadia Code", "Consolas", "Monaco", monospace;
   font-size: 12px;
   line-height: 1.6;
+  user-select: text;
 }
 
 .log-entry {

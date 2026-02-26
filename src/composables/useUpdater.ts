@@ -1,6 +1,7 @@
 import { ref, computed } from "vue";
 import { check, type Update } from "@tauri-apps/plugin-updater";
 import { relaunch } from "@tauri-apps/plugin-process";
+import { useOperationStore } from "@/stores/operation";
 
 type UpdateStatus = "idle" | "checking" | "downloading" | "installing" | "ready";
 
@@ -13,6 +14,8 @@ export function useUpdater() {
   const releaseNotes = ref("");
   const downloadedBytes = ref(0);
   const totalBytes = ref(0);
+
+  const operationStore = useOperationStore();
 
   let pendingUpdate: Update | null = null;
 
@@ -30,6 +33,7 @@ export function useUpdater() {
     status.value = "checking";
     error.value = null;
     pendingUpdate = null;
+    operationStore.addLog("info", "开始检查更新...");
 
     try {
       const update = await check();
@@ -39,14 +43,17 @@ export function useUpdater() {
         newVersion.value = update.version;
         releaseNotes.value = update.body ?? "";
         status.value = "idle";
+        operationStore.addLog("success", `发现新版本: v${update.version}`);
         return true;
       }
 
       status.value = "idle";
+      operationStore.addLog("info", "当前已是最新版本");
       return false;
     } catch (e) {
       error.value = e instanceof Error ? e.message : String(e);
       status.value = "idle";
+      operationStore.addLog("error", `检查更新失败: ${error.value}`);
       return false;
     }
   }
@@ -63,11 +70,13 @@ export function useUpdater() {
     progress.value = 0;
     downloadedBytes.value = 0;
     totalBytes.value = 0;
+    operationStore.addLog("info", `开始下载更新 v${newVersion.value}...`);
 
     try {
       await pendingUpdate.downloadAndInstall((event) => {
         if (event.event === "Started" && event.data.contentLength) {
           totalBytes.value = event.data.contentLength;
+          operationStore.addLog("info", `更新包大小: ${(totalBytes.value / 1024 / 1024).toFixed(2)} MB`);
         } else if (event.event === "Progress") {
           downloadedBytes.value += event.data.chunkLength;
           if (totalBytes.value > 0) {
@@ -77,6 +86,7 @@ export function useUpdater() {
           }
         } else if (event.event === "Finished") {
           progress.value = 100;
+          operationStore.addLog("success", "下载完成，准备安装重启...");
         }
       });
 
@@ -86,6 +96,7 @@ export function useUpdater() {
     } catch (e) {
       error.value = e instanceof Error ? e.message : String(e);
       status.value = "idle";
+      operationStore.addLog("error", `更新失败: ${error.value}`);
     }
   }
 
