@@ -1,11 +1,11 @@
 {
-  "version": "0.1.8",
-  "notes": "v0.1.8 更新内容",
-  "pub_date": "2026-02-27T03:25:11Z",
+  "version": "0.1.9",
+  "notes": "v0.1.9 鏇存柊鍐呭锛歕n1. 淇鐗堟湰鍙锋樉绀洪棶棰榎n2. 浼樺寲鑷姩鏇存柊娴佺▼",
+  "pub_date": "2026-02-27T03:35:26Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMW5QbmpKcDh0aEUrRHFkOXhaK0dsVEtqQlY2ZUtManhMR2dvK25xY3p2YW5FWi83WFZYbWhVc3NqQTFGeGR4RS9QRUVWNExTU3ByYStCRFdNVTJPdEhCQmZnZEV5QXdNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzcyMTMyMzExCWZpbGU6U1RNMzIgRG93bmxvYWQgVG9vbF8wLjEuOF94NjQtc2V0dXAuZXhlCk5zaGVibWtySlRleHFMSGo3TllMVGQ5NmJ0VDAyRmhzQmwzT25KaWE3VGx5cWU4WnBSNHgvNjZCcnFrVFhKb241Q28vL2lvUUNkaTlRQnhYbWJraUN3PT0K",
-      "url": "https://weifuxing.github.io/STM32DownloadTool/updates/STM32%20Download%20Tool_0.1.8_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMW5QbmpKcDh0aFBYaWlXZ0lHWjEwQ29tNlhXN1NYM0V5ckNZc3FiUWlONjZYRjBZVW1rZTNBNnJ2OEhNc0djanByVzVneEo2NFlPYXZCUDNQQ2tMQVRXRkhBOVN1eHdVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzcyMTMyOTI2CWZpbGU6U1RNMzIgRG93bmxvYWQgVG9vbF8wLjEuOV94NjQtc2V0dXAuZXhlCkF4QmNUUmtaeVhBSkNHL05WOWZ6aTdYR0d2OEs0cVVlVGxiTjFMVExYWW5kQWRpa3hPTCtjWGIybXpsbkFqcldkaHlqMGdyVHFSOVRQWG0xcDVNWkN3PT0K",
+      "url": "https://weifuxing.github.io/STM32DownloadTool/updates/STM32%20Download%20Tool_0.1.9_x64-setup.exe"
     }
   }
 }
