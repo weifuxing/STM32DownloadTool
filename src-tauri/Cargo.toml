@@ -1,6 +1,6 @@
 [package]
 name = "stm32-download-tool"
-version = "0.1.0"
+version = "0.1.6"
 description = "STM32 Serial ISP Download Tool"
 authors = ["you"]
 license = ""
