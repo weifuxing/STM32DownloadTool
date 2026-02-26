@@ -1,6 +1,6 @@
 {
   "name": "stm32-download-tool",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,7 +10,6 @@
     "tauri": "tauri",
     "version:sync": "node scripts/sync-version.js && git add src-tauri/tauri.conf.json"
   },
-  "version": "0.1.0",
   "dependencies": {
     "@tauri-apps/api": "^2.10.1",
     "@tauri-apps/plugin-dialog": "^2.6.0",
