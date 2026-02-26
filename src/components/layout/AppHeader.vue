@@ -20,7 +20,7 @@ const {
 const showDialog = ref(false);
 const currentVersion = ref("");
 
-/** µã»÷¼ì²é¸üĞÂ */
+/** ç‚¹å‡»æ£€æŸ¥æ›´æ–° */
 async function handleCheckUpdate() {
   const hasUpdate = await checkForUpdate();
   if (hasUpdate) {
@@ -28,12 +28,12 @@ async function handleCheckUpdate() {
   }
 }
 
-/** È·ÈÏÏÂÔØ²¢°²×° */
+/** ç¡®è®¤ä¸‹è½½å¹¶å®‰è£… */
 async function handleConfirmUpdate() {
   await downloadAndInstall();
 }
 
-/** ¹Ø±Õµ¯´° */
+/** å…³é—­å¼¹çª— */
 function handleCloseDialog() {
   if (!downloading.value) {
     showDialog.value = false;
@@ -41,7 +41,7 @@ function handleCloseDialog() {
   }
 }
 
-// Æô¶¯Ê±¾²Ä¬¼ì²éÒ»´Î
+// å¯åŠ¨æ—¶é™é»˜æ£€æŸ¥ä¸€æ¬¡
 onMounted(async () => {
   currentVersion.value = await getVersion();
   const hasUpdate = await checkForUpdate();
@@ -59,7 +59,7 @@ onMounted(async () => {
     </div>
 
     <div class="header-actions">
-      <!-- ¼ì²é¸üĞÂ°´Å¥ -->
+      <!-- æ£€æŸ¥æ›´æ–°æŒ‰é’® -->
       <NButton
         size="tiny"
         :type="updateAvailable ? 'warning' : 'default'"
@@ -68,20 +68,20 @@ onMounted(async () => {
         class="update-btn"
         @click="handleCheckUpdate"
       >
-        {{ checking ? '¼ì²éÖĞ...' : updateAvailable ? 'ÓĞĞÂ°æ±¾' : '¼ì²é¸üĞÂ' }}
+        {{ checking ? 'æ£€æŸ¥ä¸­...' : updateAvailable ? 'æœ‰æ–°ç‰ˆæœ¬' : 'æ£€æŸ¥æ›´æ–°' }}
       </NButton>
 
       <span class="header-version">v{{ currentVersion }}</span>
     </div>
 
-    <!-- ¸üĞÂµ¯´° -->
+    <!-- æ›´æ–°å¼¹çª— -->
     <NModal
       v-model:show="showDialog"
       :mask-closable="!downloading"
       :close-on-esc="!downloading"
     >
       <NCard
-        title="·¢ÏÖĞÂ°æ±¾"
+        title="å‘ç°æ–°ç‰ˆæœ¬"
         :bordered="false"
         size="small"
         class="update-dialog"
@@ -91,17 +91,17 @@ onMounted(async () => {
       >
         <NSpace vertical :size="12">
           <div class="update-version">
-            <span>ĞÂ°æ±¾£º</span>
+            <span>æ–°ç‰ˆæœ¬ï¼š</span>
             <NTag type="success" size="small">{{ newVersion }}</NTag>
           </div>
 
-          <!-- ¸üĞÂËµÃ÷ -->
+          <!-- æ›´æ–°è¯´æ˜ -->
           <div v-if="releaseNotes" class="update-notes">
-            <div class="notes-label">¸üĞÂËµÃ÷£º</div>
+            <div class="notes-label">æ›´æ–°è¯´æ˜ï¼š</div>
             <div class="notes-content">{{ releaseNotes }}</div>
           </div>
 
-          <!-- ÏÂÔØ½ø¶È -->
+          <!-- ä¸‹è½½è¿›åº¦ -->
           <div v-if="downloading">
             <NProgress
               type="line"
@@ -109,17 +109,17 @@ onMounted(async () => {
               :show-indicator="true"
               status="info"
             />
-            <div class="progress-text">ÕıÔÚÏÂÔØ¸üĞÂ... {{ progress }}%</div>
+            <div class="progress-text">æ­£åœ¨ä¸‹è½½æ›´æ–°... {{ progress }}%</div>
           </div>
 
-          <!-- ´íÎóĞÅÏ¢ -->
+          <!-- é”™è¯¯ä¿¡æ¯ -->
           <div v-if="error" class="update-error">{{ error }}</div>
 
-          <!-- ²Ù×÷°´Å¥ -->
+          <!-- æ“ä½œæŒ‰é’® -->
           <NSpace justify="end" v-if="!downloading">
-            <NButton size="small" @click="handleCloseDialog">ÉÔºóÔÙËµ</NButton>
+            <NButton size="small" @click="handleCloseDialog">ç¨åå†è¯´</NButton>
             <NButton size="small" type="primary" @click="handleConfirmUpdate">
-              Á¢¼´¸üĞÂ
+              ç«‹å³æ›´æ–°
             </NButton>
           </NSpace>
         </NSpace>
