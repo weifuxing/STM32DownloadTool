@@ -86,15 +86,17 @@ const commandTags = computed(() => {
 }
 
 .panel-header {
-  padding: 8px 12px;
-  font-size: 13px;
+  padding: 7px 12px;
+  font-size: 11px;
   font-weight: 600;
-  background: var(--bg-secondary);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
   border-bottom: 1px solid var(--border-color);
 }
 
 .panel-body {
-  padding: 12px;
+  padding: 10px 12px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -110,13 +112,13 @@ const commandTags = computed(() => {
   display: flex;
   gap: 8px;
   font-size: 12px;
-  align-items: center;
+  align-items: baseline;
 }
 
 .info-label {
   color: var(--text-secondary);
-  font-size: 12px;
-  min-width: 52px;
+  font-size: 11px;
+  min-width: 48px;
 }
 
 .info-value {
@@ -137,11 +139,11 @@ const commandTags = computed(() => {
 .command-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: 3px;
 }
 
 .no-info {
-  padding: 12px;
+  padding: 16px;
   text-align: center;
   font-size: 12px;
   color: var(--text-secondary);

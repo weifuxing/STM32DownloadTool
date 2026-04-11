@@ -38,31 +38,32 @@ const isActive = computed(() => operation.running || operation.progress > 0);
 .progress-header {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 11px;
   margin-bottom: 4px;
 }
 
 .progress-stage {
-  color: var(--text-primary);
+  color: var(--text-secondary);
   font-weight: 500;
 }
 
 .progress-percent {
   color: var(--accent-primary);
   font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
 
 .progress-bar-track {
-  height: 6px;
+  height: 3px;
   background: var(--bg-secondary);
-  border-radius: 3px;
+  border-radius: 2px;
   overflow: hidden;
 }
 
 .progress-bar-fill {
   height: 100%;
   background: var(--accent-primary);
-  border-radius: 3px;
+  border-radius: 2px;
   transition: width 0.3s ease;
 }
 
@@ -80,5 +81,6 @@ const isActive = computed(() => operation.running || operation.progress > 0);
   font-size: 11px;
   color: var(--text-secondary);
   margin-top: 2px;
+  font-variant-numeric: tabular-nums;
 }
 </style>

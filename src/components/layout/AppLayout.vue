@@ -77,41 +77,19 @@ onUnmounted(() => {
   flex-direction: column;
   height: 100vh;
   overflow: hidden;
+  background: var(--bg-primary);
 }
-
 .app-content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 12px;
-  gap: 12px;
+  padding: 10px;
+  gap: 8px;
   overflow: hidden;
 }
-
-.top-row {
-  display: flex;
-  gap: 12px;
-}
-
-.top-row > * {
-  flex: 1;
-}
-
-.middle-row {
-  display: flex;
-  gap: 12px;
-}
-
-.info-column {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.bottom-row {
-  flex: 1;
-  min-height: 120px;
-  overflow: hidden;
-}
+.top-row { display: flex; gap: 8px; }
+.top-row > * { flex: 1; }
+.middle-row { display: flex; gap: 8px; }
+.info-column { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.bottom-row { flex: 1; min-height: 100px; overflow: hidden; }
 </style>

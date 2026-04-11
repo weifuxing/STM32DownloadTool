@@ -131,20 +131,22 @@ async function handleCancel() {
 }
 
 .operation-panel {
-  width: 220px;
+  width: 200px;
   flex-shrink: 0;
 }
 
 .panel-header {
-  padding: 8px 12px;
-  font-size: 13px;
+  padding: 7px 12px;
+  font-size: 11px;
   font-weight: 600;
-  background: var(--bg-secondary);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
   border-bottom: 1px solid var(--border-color);
 }
 
 .panel-body {
-  padding: 12px;
+  padding: 10px 12px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -153,7 +155,7 @@ async function handleCancel() {
 .button-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6px;
+  gap: 5px;
 }
 
 .options {
@@ -161,5 +163,9 @@ async function handleCancel() {
   flex-direction: column;
   gap: 4px;
   font-size: 12px;
+}
+
+.protocol-select .label {
+  color: var(--text-secondary);
 }
 </style>

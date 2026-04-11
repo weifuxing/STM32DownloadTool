@@ -11,15 +11,16 @@ html, body, #app {
   width: 100%;
   overflow: hidden;
   font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   user-select: none;
+  -webkit-font-smoothing: antialiased;
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 4px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -28,9 +29,9 @@ html, body, #app {
 
 ::-webkit-scrollbar-thumb {
   background: var(--border-color);
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-secondary);
+  background: #333;
 }

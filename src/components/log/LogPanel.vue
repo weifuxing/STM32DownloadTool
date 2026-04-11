@@ -17,7 +17,7 @@ function levelColor(level: string): string {
     case "error":
       return "#e74c3c";
     default:
-      return "#a0a0b0";
+      return "#3a3a3a";
   }
 }
 
@@ -120,10 +120,12 @@ function exportLogs() {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 6px 12px;
-  font-size: 13px;
+  padding: 5px 12px;
+  font-size: 11px;
   font-weight: 600;
-  background: var(--bg-secondary);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
   border-bottom: 1px solid var(--border-color);
   flex-shrink: 0;
 }
@@ -136,9 +138,9 @@ function exportLogs() {
 .log-content {
   flex: 1;
   overflow-y: auto;
-  padding: 8px 12px;
+  padding: 6px 12px;
   font-family: "Cascadia Code", "Consolas", "Monaco", monospace;
-  font-size: 12px;
+  font-size: 11.5px;
   line-height: 1.6;
   user-select: text;
 }
@@ -150,14 +152,14 @@ function exportLogs() {
 }
 
 .log-time {
-  color: var(--text-secondary);
+  color: var(--text-dim);
   flex-shrink: 0;
 }
 
 .log-level {
   flex-shrink: 0;
   font-weight: 600;
-  width: 44px;
+  width: 40px;
 }
 
 .log-message {
@@ -169,7 +171,8 @@ function exportLogs() {
 .log-empty {
   color: var(--text-secondary);
   text-align: center;
-  padding: 24px;
+  padding: 20px;
+  font-size: 12px;
   font-family: inherit;
 }
 </style>

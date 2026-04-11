@@ -133,8 +133,8 @@ onMounted(async () => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 16px;
-  height: 40px;
+  padding: 0 14px;
+  height: 38px;
   background: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
   -webkit-app-region: drag;
@@ -144,13 +144,15 @@ onMounted(async () => {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
+  letter-spacing: 0.01em;
   color: var(--text-primary);
 }
 
 .header-icon {
-  font-size: 18px;
+  font-size: 15px;
+  opacity: 0.85;
 }
 
 .header-actions {
@@ -161,16 +163,16 @@ onMounted(async () => {
 }
 
 .header-version {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--text-secondary);
 }
 
 .update-btn {
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .update-dialog {
-  width: 420px;
+  width: 400px;
 }
 
 .update-version {
@@ -181,31 +183,31 @@ onMounted(async () => {
 }
 
 .notes-label {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-secondary);
   margin-bottom: 4px;
 }
 
 .notes-content {
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.5;
   padding: 8px;
-  background: var(--bg-secondary, #f5f5f5);
-  border-radius: 4px;
+  background: var(--bg-primary);
+  border-radius: var(--radius-sm);
   max-height: 200px;
   overflow-y: auto;
   white-space: pre-wrap;
 }
 
 .progress-text {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--text-secondary);
   margin-top: 4px;
   text-align: center;
 }
 
 .update-error {
-  color: #d03050;
-  font-size: 13px;
+  color: var(--accent-danger);
+  font-size: 12px;
 }
 </style>

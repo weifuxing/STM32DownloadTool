@@ -164,18 +164,20 @@ const connectButtonType = computed(() => {
 }
 
 .panel-header {
-  padding: 8px 12px;
-  font-size: 13px;
+  padding: 7px 12px;
+  font-size: 11px;
   font-weight: 600;
-  background: var(--bg-secondary);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
   border-bottom: 1px solid var(--border-color);
 }
 
 .panel-body {
-  padding: 12px;
+  padding: 10px 12px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 7px;
 }
 
 .form-row {
@@ -185,7 +187,7 @@ const connectButtonType = computed(() => {
 }
 
 .form-row label {
-  width: 48px;
+  width: 44px;
   font-size: 12px;
   color: var(--text-secondary);
   flex-shrink: 0;
@@ -204,9 +206,10 @@ const connectButtonType = computed(() => {
 .param-info {
   font-size: 12px;
   color: var(--text-secondary);
-  padding: 4px 8px;
+  padding: 3px 8px;
   background: var(--bg-primary);
-  border-radius: 4px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
 }
 
 .status-indicator {
@@ -217,10 +220,10 @@ const connectButtonType = computed(() => {
 }
 
 .status-dot {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: #666;
+  background: var(--text-dim);
 }
 
 .status-dot.connected {
@@ -244,7 +247,7 @@ const connectButtonType = computed(() => {
 }
 
 .status-text {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--text-secondary);
 }
 </style>

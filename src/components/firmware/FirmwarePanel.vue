@@ -120,18 +120,20 @@ async function selectFile() {
 }
 
 .panel-header {
-  padding: 8px 12px;
-  font-size: 13px;
+  padding: 7px 12px;
+  font-size: 11px;
   font-weight: 600;
-  background: var(--bg-secondary);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
   border-bottom: 1px solid var(--border-color);
 }
 
 .panel-body {
-  padding: 12px;
+  padding: 10px 12px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 7px;
 }
 
 .form-row {
@@ -146,7 +148,8 @@ async function selectFile() {
   gap: 4px;
   padding: 8px;
   background: var(--bg-primary);
-  border-radius: 4px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
 }
 
 .info-item {
@@ -156,7 +159,7 @@ async function selectFile() {
 }
 
 .info-label {
-  width: 36px;
+  width: 32px;
   color: var(--text-secondary);
   flex-shrink: 0;
 }
@@ -169,7 +172,7 @@ async function selectFile() {
 }
 
 .no-file {
-  padding: 16px;
+  padding: 14px;
   text-align: center;
   font-size: 12px;
   color: var(--text-secondary);
