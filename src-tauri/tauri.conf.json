@@ -46,7 +46,7 @@
   },
   "plugins": {
     "updater": {
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDA5OEU2QTk3NzUyQjRGOTQKUldTVVR5dDFsMnFPQ1JXSEpjQXRESG1NeTB3MjdOTHlYczlPbnorcGF4cytmMUN6cnBzeGczM1AK",
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDBBRDdBMzgyRjFFQ0MwOEQKUldTTndPenhncVBYQ2daOUNkN2NNZWRqbWxBUzJ4TG0zU0sxdXNHOU1ZaFVPU3pyemFBSk1nVGsK",
       "endpoints": [
         "https://github.com/weifuxing/STM32DownloadTool/releases/latest/download/latest.json"
       ],
